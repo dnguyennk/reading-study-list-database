@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="max-width: 600px; margin: 30px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9;">
+    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; text-align: center; margin-bottom: 20px;">
+        Add a New Book
+    </h2>
+    <form action="{{ url_for('add_book') }}" method="POST" onsubmit="return validateForm()" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <!-- Input Fields -->
+        <div style="margin-bottom: 15px;">
+            <label for="isbn" style="display: block; font-weight: bold; margin-bottom: 5px;">ISBN:</label>
+            <input type="text" id="isbn" name="isbn" placeholder="ISBN" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="title" style="display: block; font-weight: bold; margin-bottom: 5px;">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Book Title" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="published_year" style="display: block; font-weight: bold; margin-bottom: 5px;">Published Year:</label>
+            <input type="number" id="published_year" name="published_year" placeholder="20xx" min="1900" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="genre" style="display: block; font-weight: bold; margin-bottom: 5px;">Genre:</label>
+            <input type="text" id="genre" name="genre" placeholder="Genre" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="author" style="display: block; font-weight: bold; margin-bottom: 5px;">Author:</label>
+            <input type="text" id="author" name="author" placeholder="Author" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        <!-- Submit Button -->
+        <div style="text-align: right;">
+            <button type="submit" name="submit_button" style="
+                background-color: #4498f2;
+                color: white;
+                padding: 10px 20px;
+                font-size: 1em;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            ">
+                Add Book
+            </button>
+        </div>
+    </form>
+    <div style="margin-top: 20px; text-align: center;">
+        <a href="{{ url_for('home') }}" style="
+            color: #2E86C1;
+            text-decoration: none;
+            font-weight: bold;
+        ">← Back to Home</a>
+    </div>
+</div>
+{% endblock %}

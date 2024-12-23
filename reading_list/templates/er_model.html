@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="max-width: 1000px; margin: 30px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9;">
+    <h2 style="
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    ">
+        Entity-Relationship Model
+    </h2>
+    <p style="
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #555;
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        text-align: justify;
+    ">
+        Below is the Entity-Relationship (ER) diagram for the Reading List Manager Application, which outlines the core database structure and relationships between entities.
+    </p>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="{{ url_for('static', filename='ER_model.png') }}" alt="ER Model" style="
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        ">
+    </div>
+    <div style="text-align: right; margin-top: 30px;">
+        <a href="{{ url_for('home') }}" style="
+            background-color: #916c7f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        " onmouseover="this.style.backgroundColor='#7a5667'; this.style.transform='scale(1.05)';"
+           onmouseout="this.style.backgroundColor='#916c7f'; this.style.transform='scale(1)';">
+            ← Back to Home
+        </a>
+    </div>
+</div>
+{% endblock %}

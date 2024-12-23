@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>{{ table }} Records</h1>
+
+<table>
+    <thead>
+        <tr>
+            {% for key in rows[0].keys() %}
+            <th>{{ key }}</th>
+            {% endfor %}
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+        <tr>
+            {% for value in row.values() %}
+            <td>{{ value }}</td>
+            {% endfor %}
+            <td>
+                <a href="{{ url_for('edit_entry', table=table, id=row[primary_key]) }}">Edit</a> |
+                <form method="POST" action="{{ url_for('delete_entry', table=table, id=row[primary_key]) }}" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

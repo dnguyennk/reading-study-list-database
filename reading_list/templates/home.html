@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div style="text-align: left; padding: 20px;">
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #4A4A4A;">Welcome to the <span style="color: #f0377e;">Reading List Manager</span></h1>
+    <p style="font-size: 1.2em; color: #6C757D;">Effortlessly manage your books and reading lists. Select an option below to get started:</p>
+</div>
+
+<div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9;">
+    <ul style="list-style-type: none; padding: 0;">
+        <li style="margin: 15px 0;">
+            <a href="{{ url_for('view_entries', table='BOOK') }}" style="text-decoration: none; color: #4498f2; font-weight: bold;">
+                📚 Books Database
+            </a>
+        </li>
+        <li style="margin: 15px 0;">
+            <a href="{{ url_for('bookByGenre') }}" style="text-decoration: none; color: #4498f2; font-weight: bold;">
+                📖 Genre Book Lists
+            </a>
+        </li>
+        <li style="margin: 15px 0;">
+            <a href="{{ url_for('view_reading_list') }}" style="text-decoration: none; color: #4498f2; font-weight: bold;">
+                👥 View All Reading Lists and Users
+            </a>
+        </li>
+        <li style="margin: 15px 0;">
+            <a href="{{ url_for('search_book') }}" style="text-decoration: none; color: #4498f2; font-weight: bold;">
+                🔍 Find Books in Reading List
+            </a>
+        </li>
+        <li style="margin: 15px 0;">
+            <a href="{{ url_for('add_reading_list') }}" style="text-decoration: none; color: #4498f2; font-weight: bold;">
+                ➕ Add Books to Reading List
+            </a>
+        </li>
+        <li style="margin: 15px 0;">
+            <a  href="{{ url_for('add_book') }}"style="text-decoration: none; color: #4498f2; font-weight: bold;">
+                📥  Add New Book to Database
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

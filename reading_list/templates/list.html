@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="max-width: 1200px; margin: 30px auto; padding: 20px;">
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #383838; text-align: center; margin-bottom: 20px;">
+        📚 Database of {{ table }}
+    </h1>
+    <table class="formatted-table" style="
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    ">
+        <thead style="background-color: #916c7f; color: white; text-align: left;">
+            <tr>
+                {% for column in rows[0].keys() %}
+                <th style="padding: 10px;">{{ column }}</th>
+                {% endfor %}
+                <th style="padding: 10px;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr style="background-color: {% if loop.index is even %}#f9f9f9{% else %}white{% endif %};">
+                {% for column in row.keys() %}
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ row[column] }}</td>
+                {% endfor %}
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">
+                    <a href="{{ url_for('edit_entry', table=table, id=row[primary_key]) }}" style="
+                        color: #2E86C1;
+                        text-decoration: none;
+                        font-weight: bold;
+                        margin-right: 10px;
+                    ">
+                        ✏️ Edit
+                    </a>
+                    <form action="{{ url_for('delete_entry', table=table, id=row[primary_key]) }}" method="POST" style="display:inline;">
+                        <button type="submit" style="
+                            background-color: #f4f4f4; 
+                            color: #333; 
+                            padding: 5px 10px; 
+                            border: 1px solid #ccc; 
+                            border-radius: 4px; 
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        " onclick="return confirm('Are you sure you want to delete this entry?')">
+                            🗑️ Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Back to Home Button -->
+    <div style="text-align: right; margin-top: 30px;">
+        <a href="{{ url_for('home') }}" style="
+            background-color: #916c7f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        " onmouseover="this.style.backgroundColor='#7a5667'; this.style.transform='scale(1.05)';"
+           onmouseout="this.style.backgroundColor='#916c7f'; this.style.transform='scale(1)';">
+            ← Back to Home
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+    <style>
+        /* Ensure the document uses full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Flex container for main content */
+        .body-content {
+            flex: 1; /* Fills remaining space between navbar and footer */
+            padding: 20px;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgb(237, 204, 212);
+            font-size: 1em;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Buttons in Navbar */
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            background-color: #d65c84;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-right: 10px; /* Spacing between buttons */
+        }
+
+        .navbar a:hover {
+            background-color: rgb(210, 50, 100);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font */
+            font-size: 0.9em; /* Adjusted font size for readability */
+            color: #555; /* Subtle text color for a professional look */
+        }
+
+        footer img {
+            vertical-align: middle;
+        }
+
+        /* Responsive image styling */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
+        <a href="{{ url_for('about') }}" class="navbar-brand">About</a>
+        <a href="{{ url_for('er_model') }}" class="navbar-link">ER Model</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="body-content">
+        {% block content %}
+            <p><img src="{{ url_for('static', filename='duyen_logo.png')}}" width="200" height="200"></p>
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            <img src="{{ url_for('static', filename='logo.png')}}" width="35" height="20">
+            &copy; Duyen Nguyen - 2024 - Reading List Manager Application
+        </p>
+    </footer>
+</body>
+</html>

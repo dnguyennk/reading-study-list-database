@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="max-width: 800px; margin: 30px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9;">
+    <div style="text-align: center;">
+        <img src="{{ url_for('static', filename='duyen_logo.png') }}" alt="Duyen Logo" style="width: 350px; height: auto; margin-bottom: 20px;">
+    </div>
+    <h2 style="
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    ">
+        About the Reading List Manager Application
+    </h2>
+    <p style="
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #555;
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        text-align: justify;
+    ">
+        Welcome to the Reading List Manager Application, created as part of the COMP 3005 Final Project.
+        This application is designed to help users manage, customize, and organize their reading and study lists effectively. It supports collaboration, progress tracking, and sharing, making it an ideal tool for students, researchers, and book enthusiasts.
+    </p>
+    <h3 style="
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin-bottom: 15px;
+    ">
+        Features:
+    </h3>
+    <ul style="
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #555;
+        font-size: 1em;
+        line-height: 1.8;
+        margin-left: 20px;
+    ">
+        <li>Customize multiple reading lists.</li>
+        <li>Add books with details like ISBN, title, author, genre, and publication year.</li>
+        <li>Search books by title, author, genre, or user-generated tags.</li>
+        <li>Track reading progress with statuses like "in progress" or "completed".</li>
+        <li>Add personal notes and set reading goals to enhance productivity.</li>
+        <li>Collaborate with others by sharing lists or inviting contributors.</li>
+        <li>Control privacy settings to keep lists public or private.</li>
+    </ul>
+    <p style="
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #555;
+        font-size: 0.95em;
+        margin-top: 20px;
+        text-align: left;
+    ">
+        Created by: <strong>Duyen Nguyen</strong><br>
+        Student ID: <strong>101314143</strong> <!-- Replace with your actual student ID -->
+    </p>
+    <p style="
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #777;
+        font-size: 0.9em;
+        margin-top: 10px;
+        text-align: center;
+    ">
+        
+    </p>
+    <div style="text-align: right; margin-top: 20px;">
+        <a href="{{ url_for('home') }}" style="
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2E86C1;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+        ">
+            ← Back to Home
+        </a>
+    </div>
+</div>
+{% endblock %}

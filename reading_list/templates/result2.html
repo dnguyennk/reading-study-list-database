@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="max-width: 900px; margin: 20px auto; padding: 20px;">
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #424242; text-align: center; margin-bottom: 30px;">
+        📚 Books by Genre
+    </h1>
+
+    <table class="formatted-table" style="
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    ">
+        <thead style="background-color: #916c7f; color: white; text-align: center;">
+            <tr>
+                <th style="padding: 20px;">Book ID</th>
+                <th style="padding: 15px;">Book Name</th>
+                <th style="padding: 15px;">Author</th>
+                <th style="padding: 15px;">Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in all_books %}
+            <tr style="background-color: {% if loop.index is even %}#ffe3e9{% else %}white{% endif %}; transition: background-color 0.3s ease;">
+                <td style="padding: 15px; border-bottom: 1px solid #ffbed0; text-align: center;">{{ row["Book_id"] }}</td>
+                <td style="padding: 15px; border-bottom: 1px solid #ffbed0; text-align: center;">{{ row["Title"] }}</td>
+                <td style="padding: 15px; border-bottom: 1px solid #ffbed0; text-align: center;">{{ row["Author"] }}</td>
+                <td style="padding: 15px; border-bottom: 1px solid #ffbed0; text-align: center;">{{ row["Genre"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Back to Home Button -->
+    <div style="text-align: right; margin-top: 30px;">
+        <a href="{{ url_for('home') }}" style="
+            background-color: #916c7f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        " onmouseover="this.style.backgroundColor='#7a5667'; this.style.transform='scale(1.05)';"
+           onmouseout="this.style.backgroundColor='#916c7f'; this.style.transform='scale(1)';">
+            ← Back to Home
+        </a>
+    </div>
+</div>
+{% endblock %}
